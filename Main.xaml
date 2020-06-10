@@ -1,0 +1,307 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1153.33333333333,5129.33333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetRowFromTable" sap:VirtualizedContainerService.HintSize="518,4964.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtInput" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Read data table" sap:VirtualizedContainerService.HintSize="476,351.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="listUse" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,259.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="Input.xlsx">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,150.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[dtInput]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                <ui:ExcelReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ExcelReadRange.Range>
+              </ui:ExcelReadRange>
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+      </ui:ExcelApplicationScope>
+    </Sequence>
+    <Sequence DisplayName="Commented area" sap:VirtualizedContainerService.HintSize="476,4481.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="SimpleSelectiByIndex" sap:VirtualizedContainerService.HintSize="376,600" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 3 and column 1" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[dtInput.Rows(2).Item(0).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 15 and column 3" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[dtInput.Rows(14).Item(2).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 1 and column 1" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[dtInput.Rows(0).Item(0).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in last row and last column" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[dtInput.Rows(dtInput.Rows.Count-1).Item(dtInput.Columns.Count-1).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+      </Sequence>
+      <Sequence DisplayName="SimpleSelectByHeader" sap:VirtualizedContainerService.HintSize="376,644" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 3 and column &quot;Rank&quot;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[dtInput.Rows(2).Item(&quot;Rank&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 15 and column &quot;Country&quot;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[dtInput.Rows(14).Item(&quot;Country name&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data in row 1 and column &quot;Total_area_km2&quot;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[dtInput.Rows(0).Item(&quot;Total_area_km2&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select last row from column &quot;Notes&quot;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[dtInput.Rows(dtInput.Rows.Count-1).Item(&quot;Notes&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+      </Sequence>
+      <Sequence DisplayName="SelectRowWithSpecificValue" sap:VirtualizedContainerService.HintSize="376,844" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data where &quot;Rank&quot; = 11, from column &quot;Country name&quot;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,108" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[dtInput.Select(&quot;Rank = 11&quot;)(0).Item(&quot;Country name&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data where &quot;Country name&quot; = &quot;United Kingdom&quot;, from column &quot;Rank&quot;&#xA;&#xA;Column name has more than 1 word" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,174.666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[dtInput.Select(&quot;[Country name] = 'United Kingdom'&quot;)(0).Item(&quot;Rank&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data where &quot;Country name&quot; contains &quot;United &quot;, from column &quot;Total_area_km2&quot;&#xA;&#xA;Using &quot;Like&quot; instead of '=', when not exact value" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,174.666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[dtInput.Select(&quot;[Country name] Like '%Kingdom%'&quot;)(0).Item(&quot;Total_area_km2&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+        <WriteLine sap2010:Annotation.AnnotationText="Select data where &quot;Country name&quot; contains &quot;Unit&quot; and &quot;King&quot;, from column &quot;Notes&quot;&#xA;&#xA;Using &quot;Like&quot; instead of '=', when not exact value" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.333333333333,174.666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="[dtInput.Select(&quot;[Country name] Like '%King%' AND [Country name] Like '%Unit%'&quot;)(0).Item(&quot;Notes&quot;).ToString]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </WriteLine>
+      </Sequence>
+      <Sequence DisplayName="Number manipulations" sap:VirtualizedContainerService.HintSize="376,958.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="sd:DataTable" Name="dtSelected" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select data where &quot;Rank&quot; is lower than 10&#xA;&#xA;&lt;AssemblyReference&gt;System.Data.DataSetExtensions&lt;/AssemblyReference&gt;" DataTable="[dtInput.Select(&quot;Rank &lt; 10&quot;).CopyToDataTable]" DisplayName="Output13" sap:VirtualizedContainerService.HintSize="334,193.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Output13" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_14" Text="[dtInput.Select(&quot;Rank &lt; 10&quot;)(3).Item(&quot;Country name&quot;).ToString]" />
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select data where &quot;Rank&quot; is greater than 30" DataTable="[dtInput.Select(&quot;Rank &gt; 30&quot;).CopyToDataTable]" DisplayName="Output14" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Output14" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select data where &quot;Rank&quot; is lower than 10 OR greater than 30" DataTable="[dtInput.Select(&quot;Rank &lt; 10 OR Rank &gt; 30&quot;).CopyToDataTable]" DisplayName="Output15" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Output15" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select data where &quot;Rank&quot; is between 10 and 20" DataTable="[dtInput.Select(&quot;Rank &gt;= 10 AND Rank &lt;= 20&quot;).CopyToDataTable]" DisplayName="Output16" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Output16" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+      </Sequence>
+      <Sequence DisplayName="Blank / Number / Text selection" sap:VirtualizedContainerService.HintSize="376,608" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select rows where notes are populated" DataTable="[dtInput.Select(&quot;Notes IS NOT null&quot;).CopyToDataTable]" DisplayName="Output17" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_7" SheetName="Output17" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Select rows where notes are populated" DataTable="[dtInput.Select(&quot;Notes IS null &quot;).CopyToDataTable]" DisplayName="Output18" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_9" SheetName="Output18" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Multiple conditions + sorting" DataTable="[dtInput.Select(&quot;Rank &gt;= 10 AND Rank &lt;= 40 AND [Country name] Like '%nia%'&quot;, &quot;[Country name] ASC&quot;).CopyToDataTable]" DisplayName="Output19" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_12" SheetName="Output19" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+      </Sequence>
+      <Sequence sap2010:Annotation.AnnotationText="Bonus part: this part is not included in the video because LINQ expressions are used below. There is a separate tutorial to cover LINQ expression, but you may find this code useful if you need to filter numeric or non numeric values. &#xA;&#xA;Enjoy :)" DisplayName="Bonus" sap:VirtualizedContainerService.HintSize="376,534.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Return Numeric" DataTable="[dtInput.AsEnumerable().Where(Function(row) IsNumeric(row(dtInput.Columns(&quot;Notes&quot;)).ToString.Trim)).CopyToDataTable]" DisplayName="Output20" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_15" SheetName="Output20" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+        <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Return not numeric" DataTable="[dtInput.AsEnumerable().Where(Function(row) NOT IsNumeric(row(dtInput.Columns(&quot;Notes&quot;)).ToString.Trim)).CopyToDataTable]" DisplayName="Output21" sap:VirtualizedContainerService.HintSize="334,145.333333333333" sap2010:WorkflowViewState.IdRef="WriteRange_16" SheetName="Output21" StartingCell="A1" WorkbookPath="Output.xlsx">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteRange>
+      </Sequence>
+    </Sequence>
+  </Sequence>
+</Activity>
